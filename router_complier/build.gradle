@@ -1,0 +1,20 @@
+plugins {
+    id 'java-library'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_7
+    targetCompatibility = JavaVersion.VERSION_1_7
+}
+dependencies {
+
+    //依赖auto_service 该javalib就是一个可以监控工程编译的服务了
+    compileOnly'com.google.auto.service:auto-service:1.0-rc4'
+    annotationProcessor'com.google.auto.service:auto-service:1.0-rc4'
+
+    // 帮助我们通过类调用的形式来生成Java代码
+    implementation "com.squareup:javapoet:1.9.0"
+
+    //使用注解@PluginRouter
+    implementation project(":router_annotations")
+}
